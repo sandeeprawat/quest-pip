@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101b25" />
+    <title>Glass Lab — Quest mixed reality</title>
+  </head>
+  <body>
+    <main class="app">
+      <section class="intro">
+        <div class="eyebrow"><span class="live-dot"></span> QUEST 3 · MIXED REALITY</div>
+        <h1>A little magic.<br />In your real world.</h1>
+        <p class="lede">Mark a glass in your room. Pick up its virtual twin. Take an imaginary sip.</p>
+        <div class="actions">
+          <button id="enter-xr" disabled>Checking headset…</button>
+          <button id="preview-toggle" class="secondary">Try desktop demo</button>
+        </div>
+        <p id="status" role="status" aria-live="polite">Checking mixed-reality support.</p>
+        <div id="error" role="alert" hidden></div>
+        <section class="companion-card" aria-label="Pip voice companion">
+          <div class="companion-heading"><h2>Meet Pip</h2><span id="companion-state" role="status" aria-live="polite">Connecting to the Mac</span></div>
+          <p>Talk to your local AI companion. Try “pick up the glass and throw it.” Virtual glass only.</p>
+          <div class="actions">
+            <button id="companion-talk" disabled aria-pressed="false">Talk to Pip</button>
+            <button id="companion-check" class="secondary">Check connection</button>
+          </div>
+          <p class="voice-help">Tap to start, tap again to send · 20 seconds max. In mixed reality, aim at Pip and pinch / trigger instead.</p>
+          <form id="companion-form">
+            <label for="companion-input">Or type a message</label>
+            <div class="text-message"><input id="companion-input" maxlength="1000" placeholder="Hi Pip, what can you do?" autocomplete="off" disabled /><button type="submit" disabled>Send</button></div>
+          </form>
+          <div id="companion-error" role="alert" hidden></div>
+          <div class="conversation" aria-live="polite">
+            <p><b>You</b> <span id="companion-transcript">Your microphone stays off until you start recording.</span></p>
+            <p><b>Pip</b> <span id="companion-reply">Hi, I am Pip. Tap me to talk.</span></p>
+          </div>
+          <p class="voice-help">Audio and text go only to this Mac. Speech recognition, AI, and speech synthesis run locally. Conversation is kept in this tab, not saved.</p>
+        </section>
+        <div class="steps">
+          <article><span>01</span><div><h2>Mark it</h2><p>Aim at your glass. Pinch or press the trigger to place the virtual cup.</p></div></article>
+          <article><span>02</span><div><h2>Pick it up</h2><p>Aim at the virtual cup, then hold a pinch or trigger to carry it.</p></div></article>
+          <article><span>03</span><div><h2>Take a sip</h2><p>Bring the virtual cup below your headset and tip it toward your mouth.</p></div></article>
+        </div>
+        <p class="note">Virtual cup only. Leave the real glass on the table and keep your space clear. No camera images are captured or uploaded.</p>
+      </section>
+      <section class="stage" aria-label="Interactive virtual glass preview">
+        <div class="stage-top"><span>GLASS LAB</span><span class="badge">EXPERIMENT 001</span></div>
+        <div id="viewport"></div>
+        <div class="stage-bottom">
+          <div><span class="label">REMAINING</span><strong id="remaining">100<span>%</span></strong></div>
+          <button id="refill" class="secondary">Refill & reset</button>
+        </div>
+        <p id="demo-help" hidden>Click the table to place · click the cup to grab · hold S to sip · click to release</p>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
